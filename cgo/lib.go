@@ -1,11 +1,10 @@
 package main
 
 import "C"
-import "fmt"
 
-//export HelloWord
-func HelloWord() {
-	fmt.Println("Hello world from golang")
+//export getHelloWord
+func getHelloWord(name string) string {
+	return "Hello world from " + name
 }
 
 func main() {
