@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-typedef int(__stdcall* f_getHelloWord)();
+typedef int(__stdcall* f_getHelloWord)(int n);
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	std::cout << "getHelloWord() returned " << fn() << std::endl;
+	std::cout << "getHelloWord() returned " << fn(10000) << std::endl;
 
 	return EXIT_SUCCESS;
 }
