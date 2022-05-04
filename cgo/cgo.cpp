@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-typedef string(*GW)(string input);
+typedef int(__stdcall* f_getHelloWord)();
 
 int main()
 {
@@ -17,15 +17,15 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	GW getHelloWord = (GW)GetProcAddress(hModule, "getHelloWord");
+	// resolve function address here
+	f_getHelloWord fn = (f_getHelloWord)GetProcAddress(hModule, "getHelloWord");
 
-	if (!getHelloWord) {
+	if (!fn) {
 		std::cout << "could not locate the function" << std::endl;
 		return EXIT_FAILURE;
 	}
 
-	string output = getHelloWord("Golang");
+	std::cout << "getHelloWord() returned " << fn() << std::endl;
 
-	//Printing the string returned by above function
-	std::cout << output;
+	return EXIT_SUCCESS;
 }

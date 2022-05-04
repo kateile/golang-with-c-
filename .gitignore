@@ -2,3 +2,4 @@
 .idea
 *.so
 Debug
+*.dll

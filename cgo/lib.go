@@ -3,8 +3,8 @@ package main
 import "C"
 
 //export getHelloWord
-func getHelloWord(name string) string {
-	return "Hello world from " + name
+func getHelloWord() int {
+	return 7888
 }
 
 func main() {
